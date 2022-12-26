@@ -1,4 +1,4 @@
-from app.linked_list import ListNode
+from app.linked_list import ListNode, LinkedList
 
 
 def test_has_next():
@@ -9,3 +9,9 @@ def test_has_next():
     assert node.has_next() is True
     assert next_node.has_next() is False
 
+
+def test_is_empty():
+    list: LinkedList = LinkedList()
+
+    assert list.is_empty() is True
+    
