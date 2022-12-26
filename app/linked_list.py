@@ -14,4 +14,6 @@ class ListNode:
         self.next = None
 
     def has_next(self):
+        if self.next is not None:
+            return True
         return False
