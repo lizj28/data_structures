@@ -34,3 +34,19 @@ class LinkedList:
         while temp_node.next is not None:
             temp_node = temp_node.next
         temp_node.next = node
+
+    def insert_at(self, node: ListNode, index: int):
+        count: int = 0
+        temp_node: ListNode = self.head
+        if index == 0:
+            node.next = self.head.next
+            self.head = node
+
+        while temp_node.next is not None:
+            if count == index - 1:
+                node.next = temp_node.next
+                temp_node.next = node
+                return
+            temp_node = temp_node.next
+            count += 1
+        temp_node.next = node

@@ -40,3 +40,16 @@ class TestLinkedList(unittest.TestCase):
 
         assert self.list.head == self.list_node
         assert self.list.head.next == list_node_2
+
+    def test_insert_at(self):
+        self.list.head = self.list_node
+        list_node_2: ListNode = ListNode("data 2")
+        self.list.head.next = list_node_2
+
+        list_node_3: ListNode = ListNode("data 3")
+        self.list.insert_at(list_node_3, 1)
+
+        assert self.list.head == self.list_node
+        assert self.list.head.next == list_node_3
+        assert self.list.head.next.next == list_node_2
+
