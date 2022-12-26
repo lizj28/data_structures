@@ -53,4 +53,24 @@ class TestLinkedList(unittest.TestCase):
         assert self.list.head.next == list_node_3
         assert self.list.head.next.next == list_node_2
 
+    def test_remove_at(self):
+        self.list.head = self.list_node
+        list_node_2: ListNode = ListNode("data 2")
+        self.list.head.next = list_node_2
+        list_node_3: ListNode = ListNode("data 3")
+        self.list.head.next.next = list_node_3
 
+        self.list.remove_at(1)
+
+        assert self.list.head == self.list_node
+        assert self.list.head.next == list_node_3
+
+    def test_remove_first(self):
+        self.list.head = self.list_node
+        list_node_2: ListNode = ListNode("data 2")
+        self.list.head.next = list_node_2
+
+        self.list.remove_first()
+
+        assert self.list.head == list_node_2
+        

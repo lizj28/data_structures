@@ -9,8 +9,6 @@ class ListNode:
         return False
 
 
-# Insertion
-
 # Deletion
 
 # Searching
@@ -49,3 +47,19 @@ class LinkedList:
             temp_node = temp_node.next
             count += 1
         temp_node.next = node
+
+    def remove_at(self, index: int):
+        count: int = 0
+        temp_node: ListNode = self.head
+        if index == 0 and not self.is_empty():
+            self.head = self.head.next
+
+        while temp_node.next is not None:
+            if count == index - 1:
+                temp_node.next = temp_node.next.next
+                return
+            temp_node = temp_node.next
+            count += 1
+
+    def remove_first(self):
+        self.remove_at(0)
