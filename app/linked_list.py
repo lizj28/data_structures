@@ -1,3 +1,14 @@
+class ListNode:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+    def has_next(self):
+        if self.next is not None:
+            return True
+        return False
+
+
 # Insertion
 
 # Deletion
@@ -10,15 +21,11 @@ class LinkedList:
         self.head = None
 
     def is_empty(self):
+        if self.head is not None:
+            return False
         return True
 
+    def insert_first(self, node: ListNode):
+        node.next = self.head
+        self.head = node
 
-class ListNode:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-    def has_next(self):
-        if self.next is not None:
-            return True
-        return False
