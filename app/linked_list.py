@@ -26,8 +26,7 @@ class LinkedList:
         return True
 
     def insert_first(self, node: ListNode):
-        node.next = self.head
-        self.head = node
+        self.insert_at(node, 0)
 
     def insert_last(self, node: ListNode):
         temp_node: ListNode = self.head
@@ -39,7 +38,7 @@ class LinkedList:
         count: int = 0
         temp_node: ListNode = self.head
         if index == 0:
-            node.next = self.head.next
+            node.next = self.head
             self.head = node
 
         while temp_node.next is not None:

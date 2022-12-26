@@ -53,3 +53,4 @@ class TestLinkedList(unittest.TestCase):
         assert self.list.head.next == list_node_3
         assert self.list.head.next.next == list_node_2
 
+
