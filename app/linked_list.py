@@ -29,3 +29,8 @@ class LinkedList:
         node.next = self.head
         self.head = node
 
+    def insert_last(self, node: ListNode):
+        temp_node: ListNode = self.head
+        while temp_node.next is not None:
+            temp_node = temp_node.next
+        temp_node.next = node
