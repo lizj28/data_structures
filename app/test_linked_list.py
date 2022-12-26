@@ -73,4 +73,27 @@ class TestLinkedList(unittest.TestCase):
         self.list.remove_first()
 
         assert self.list.head == list_node_2
-        
+
+    def test_remove_last(self):
+        self.list.head = self.list_node
+        list_node_2: ListNode = ListNode("data 2")
+        self.list.head.next = list_node_2
+
+        self.list.remove_last()
+
+        assert self.list.head == self.list_node
+        assert self.list.head.next is None
+
+    def test_contains(self):
+        self.list.head = self.list_node
+        list_node_2: ListNode = ListNode("data 2")
+        self.list.head.next = list_node_2
+        list_node_3: ListNode = ListNode("data 3")
+        self.list.head.next.next = list_node_3
+
+        found_node: ListNode = self.list.contains(list_node_2)
+        self.list.remove_first()
+        not_found_node: ListNode = self.list.contains(self.list_node)
+
+        assert found_node == list_node_2
+        assert not_found_node is None

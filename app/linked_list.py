@@ -9,8 +9,6 @@ class ListNode:
         return False
 
 
-# Deletion
-
 # Searching
 
 # Traversal
@@ -28,7 +26,7 @@ class LinkedList:
 
     def insert_last(self, node: ListNode):
         temp_node: ListNode = self.head
-        while temp_node.next is not None:
+        while temp_node.has_next():
             temp_node = temp_node.next
         temp_node.next = node
 
@@ -39,7 +37,7 @@ class LinkedList:
             node.next = self.head
             self.head = node
 
-        while temp_node.next is not None:
+        while temp_node.has_next():
             if count == index - 1:
                 node.next = temp_node.next
                 temp_node.next = node
@@ -54,7 +52,7 @@ class LinkedList:
         if index == 0 and not self.is_empty():
             self.head = self.head.next
 
-        while temp_node.next is not None:
+        while temp_node.has_next():
             if count == index - 1:
                 temp_node.next = temp_node.next.next
                 return
@@ -63,3 +61,17 @@ class LinkedList:
 
     def remove_first(self):
         self.remove_at(0)
+
+    def remove_last(self):
+        temp_node: ListNode = self.head
+        while temp_node.next.next is not None:
+            temp_node = temp_node.next
+        temp_node.next = None
+
+    def contains(self, node: ListNode):
+        temp_node: ListNode = self.head
+        while temp_node.has_next():
+            if temp_node == node:
+                return temp_node
+            temp_node = temp_node.next
+        return None
