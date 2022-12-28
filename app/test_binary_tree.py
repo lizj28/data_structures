@@ -43,4 +43,13 @@ class TestBinaryTree(unittest.TestCase):
         assert node_found == right_right_node
         assert node_not_found is None
 
+    def test_height(self):
+        self.tree.root = self.tree_node
+        right_node: TreeNode = TreeNode(6)
+        left_node: TreeNode = TreeNode(4)
+        right_right_node: TreeNode = TreeNode(8)
+        self.tree.insert(self.tree.root, right_node)
+        self.tree.insert(self.tree.root, left_node)
+        self.tree.insert(self.tree.root, right_right_node)
 
+        assert self.tree.height(self.tree.root, 0) == 3

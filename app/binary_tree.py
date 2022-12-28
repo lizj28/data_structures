@@ -5,8 +5,6 @@ class TreeNode:
         self.data = data
 
 # Removal
-# Search
-# Height of tree
 class BinaryTree:
     def __init__(self):
         self.root = None
@@ -35,3 +33,11 @@ class BinaryTree:
             return self.find(root_node.right_child, val)
         elif val < root_node.data:
             return self.find(root_node.left_child, val)
+
+    def height(self, root_node: TreeNode, cur_height: int = 0):
+        if root_node is None:
+            return cur_height
+        left_height: int = self.height(root_node.left_child)
+        right_height: int = self.height(root_node.right_child)
+
+        return max(left_height, right_height) + 1
