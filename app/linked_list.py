@@ -9,8 +9,6 @@ class ListNode:
         return False
 
 
-# Searching
-
 # Traversal
 class LinkedList:
     def __init__(self):
