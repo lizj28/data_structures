@@ -1,6 +1,6 @@
 import unittest
 
-from app.binary_tree import BinaryTree, TreeNode
+from app.bst.binary_tree import BinaryTree, TreeNode
 
 
 class TestBinaryTree(unittest.TestCase):
